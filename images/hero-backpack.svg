@@ -1,0 +1,114 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="backpackGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="metalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#94a3b8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#64748b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="500" fill="url(#bgGradient)"/>
+  
+  <!-- Main backpack body -->
+  <rect x="120" y="80" width="160" height="300" rx="8" fill="url(#backpackGradient)" filter="url(#shadow)"/>
+  
+  <!-- Top flap/lid -->
+  <path d="M120 80 Q200 60 280 80 L280 120 Q200 100 120 120 Z" fill="#1e3a8a" filter="url(#shadow)"/>
+  
+  <!-- Main zipper -->
+  <line x1="130" y1="100" x2="270" y2="100" stroke="#64748b" stroke-width="3" stroke-dasharray="4,2"/>
+  <circle cx="275" cy="100" r="4" fill="url(#metalGradient)"/>
+  
+  <!-- Front main pocket -->
+  <rect x="140" y="140" width="120" height="120" rx="4" fill="#3b82f6" stroke="#1e40af" stroke-width="2"/>
+  
+  <!-- Front pocket zipper -->
+  <line x1="150" y1="200" x2="250" y2="200" stroke="#64748b" stroke-width="2" stroke-dasharray="3,1"/>
+  <circle cx="255" cy="200" r="3" fill="url(#metalGradient)"/>
+  
+  <!-- Small front pocket -->
+  <rect x="160" y="280" width="80" height="60" rx="3" fill="#60a5fa" stroke="#1e40af" stroke-width="1"/>
+  <line x1="170" y1="310" x2="230" y2="310" stroke="#64748b" stroke-width="1.5" stroke-dasharray="2,1"/>
+  <circle cx="235" cy="310" r="2" fill="url(#metalGradient)"/>
+  
+  <!-- Left shoulder strap -->
+  <path d="M120 100 Q80 120 60 160 Q50 200 55 240 Q60 280 70 320 Q80 360 90 400 Q95 420 100 440" 
+        fill="none" stroke="#1e40af" stroke-width="12" stroke-linecap="round" filter="url(#shadow)"/>
+  
+  <!-- Right shoulder strap -->
+  <path d="M280 100 Q320 120 340 160 Q350 200 345 240 Q340 280 330 320 Q320 360 310 400 Q305 420 300 440" 
+        fill="none" stroke="#1e40af" stroke-width="12" stroke-linecap="round" filter="url(#shadow)"/>
+  
+  <!-- Shoulder strap padding -->
+  <ellipse cx="75" cy="280" rx="8" ry="40" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+  <ellipse cx="325" cy="280" rx="8" ry="40" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+  
+  <!-- Top carry handle -->
+  <path d="M160 60 Q200 40 240 60" fill="none" stroke="#1e40af" stroke-width="8" stroke-linecap="round" filter="url(#shadow)"/>
+  <rect x="155" y="55" width="10" height="10" rx="2" fill="url(#metalGradient)"/>
+  <rect x="235" y="55" width="10" height="10" rx="2" fill="url(#metalGradient)"/>
+  
+  <!-- Side water bottle pocket -->
+  <ellipse cx="100" cy="220" rx="15" ry="50" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+  <ellipse cx="300" cy="220" rx="15" ry="50" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+  
+  <!-- Laptop compartment indicator -->
+  <rect x="125" y="85" width="150" height="3" rx="1.5" fill="#fbbf24"/>
+  <text x="200" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#fbbf24">LAPTOP</text>
+  
+  <!-- Brand logo area -->
+  <rect x="180" y="160" width="40" height="20" rx="2" fill="#ffffff" opacity="0.9"/>
+  <text x="200" y="173" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e40af">MENS</text>
+  
+  <!-- Reflective strips -->
+  <rect x="115" y="150" width="3" height="80" fill="#fbbf24" opacity="0.8"/>
+  <rect x="282" y="150" width="3" height="80" fill="#fbbf24" opacity="0.8"/>
+  
+  <!-- Compression straps -->
+  <rect x="90" y="180" width="30" height="4" rx="2" fill="#64748b"/>
+  <rect x="280" y="180" width="30" height="4" rx="2" fill="#64748b"/>
+  <rect x="90" y="240" width="30" height="4" rx="2" fill="#64748b"/>
+  <rect x="280" y="240" width="30" height="4" rx="2" fill="#64748b"/>
+  
+  <!-- Buckles -->
+  <rect x="115" y="178" width="8" height="8" rx="1" fill="url(#metalGradient)"/>
+  <rect x="305" y="178" width="8" height="8" rx="1" fill="url(#metalGradient)"/>
+  <rect x="115" y="238" width="8" height="8" rx="1" fill="url(#metalGradient)"/>
+  <rect x="305" y="238" width="8" height="8" rx="1" fill="url(#metalGradient)"/>
+  
+  <!-- Bottom reinforcement -->
+  <rect x="120" y="370" width="160" height="10" rx="5" fill="#475569"/>
+  
+  <!-- Bottom feet/studs -->
+  <circle cx="140" cy="385" r="3" fill="url(#metalGradient)"/>
+  <circle cx="200" cy="385" r="3" fill="url(#metalGradient)"/>
+  <circle cx="260" cy="385" r="3" fill="url(#metalGradient)"/>
+  
+  <!-- Stitching details -->
+  <line x1="125" y1="85" x2="125" y2="375" stroke="#1e3a8a" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+  <line x1="275" y1="85" x2="275" y2="375" stroke="#1e3a8a" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+  <line x1="125" y1="375" x2="275" y2="375" stroke="#1e3a8a" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+  
+  <!-- Quality certification badge -->
+  <circle cx="350" cy="120" r="25" fill="#10b981" stroke="#059669" stroke-width="2"/>
+  <text x="350" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">ISO</text>
+  <text x="350" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="white">9001</text>
+  
+  <!-- Premium materials indicator -->
+  <rect x="50" y="350" width="60" height="30" rx="4" fill="#7c3aed" stroke="#6d28d9" stroke-width="1"/>
+  <text x="80" y="362" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">PREMIUM</text>
+  <text x="80" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="white">MATERIALS</text>
+</svg>
