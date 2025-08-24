@@ -593,6 +593,95 @@ class PerformanceMonitor {
     }
 }
 
+// Blog Category Handler
+class BlogCategoryHandler {
+    constructor() {
+        this.init();
+    }
+    
+    init() {
+        // Only initialize on blog page
+        if (window.location.pathname.includes('blog.html')) {
+            this.setupCategoryLinks();
+            this.setupBackToCategories();
+        }
+    }
+    
+    setupCategoryLinks() {
+        const categoryLinks = document.querySelectorAll('.category-link');
+        const articlesSections = document.querySelectorAll('.articles-section');
+        const categoriesSection = document.querySelector('.blog-categories');
+        const mainArticlesSection = document.querySelector('.articles-section:not([id])');
+        
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    // Hide all sections
+                    if (categoriesSection) categoriesSection.style.display = 'none';
+                    if (mainArticlesSection) mainArticlesSection.style.display = 'none';
+                    articlesSections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Show target section
+                    targetSection.style.display = 'block';
+                    
+                    // Scroll to top of the section
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    }
+    
+    setupBackToCategories() {
+        // Add back buttons to article sections
+        const articlesSections = document.querySelectorAll('.articles-section');
+        
+        articlesSections.forEach(section => {
+            if (!section.querySelector('.back-to-categories')) {
+                const backButton = document.createElement('button');
+                backButton.className = 'back-to-categories btn btn-secondary';
+                backButton.innerHTML = '← Back to Categories';
+                backButton.style.marginBottom = '2rem';
+                
+                backButton.addEventListener('click', () => {
+                    this.showCategories();
+                });
+                
+                const container = section.querySelector('.container');
+                if (container) {
+                    container.insertBefore(backButton, container.firstChild);
+                }
+            }
+        });
+    }
+    
+    showCategories() {
+        const categoriesSection = document.querySelector('.blog-categories');
+        const articlesSections = document.querySelectorAll('.articles-section');
+        const mainArticlesSection = document.querySelector('.articles-section:not([id])');
+        
+        // Hide all article sections
+        articlesSections.forEach(section => {
+            section.style.display = 'none';
+        });
+        
+        // Show categories and main articles
+        if (categoriesSection) categoriesSection.style.display = 'block';
+        if (mainArticlesSection) mainArticlesSection.style.display = 'block';
+        
+        // Scroll to categories
+        if (categoriesSection) {
+            categoriesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+}
+
 // Initialize all components when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     new Navigation();
@@ -605,6 +694,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new SearchHandler();
     new CookieConsent();
     new PerformanceMonitor();
+    new BlogCategoryHandler();
 });
 
 // Add CSS animations
