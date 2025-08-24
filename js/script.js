@@ -95,16 +95,23 @@ class AnimationObserver {
     }
 }
 
-// Language Selector
+// Language Selector (Enhanced with translations)
 class LanguageSelector {
     constructor() {
         this.selector = document.querySelector('.language-selector');
         this.currentLang = localStorage.getItem('selectedLanguage') || 'en';
+        this.languageManager = null;
         
         this.init();
     }
     
     init() {
+        // Initialize language manager when translations are available
+        if (typeof LanguageManager !== 'undefined') {
+            this.languageManager = new LanguageManager();
+            this.languageManager.init();
+        }
+        
         if (this.selector) {
             this.selector.value = this.currentLang;
             this.selector.addEventListener('change', this.handleLanguageChange.bind(this));
@@ -116,16 +123,30 @@ class LanguageSelector {
         const selectedLang = event.target.value;
         this.currentLang = selectedLang;
         localStorage.setItem('selectedLanguage', selectedLang);
-        this.applyLanguage(selectedLang);
+        
+        if (this.languageManager) {
+            this.languageManager.setLanguage(selectedLang);
+        } else {
+            this.applyLanguage(selectedLang);
+        }
     }
     
     applyLanguage(lang) {
-        // This would typically integrate with a translation system
-        // For now, we'll just store the preference
         document.documentElement.lang = lang;
         
-        // You can extend this to actually translate content
-        // by loading translation files or using a translation API
+        // Show notification about language change
+        if (typeof NotificationManager !== 'undefined') {
+            const messages = {
+                'en': 'Language changed to English',
+                'es': 'Idioma cambiado a Español',
+                'fr': 'Langue changée en Français',
+                'de': 'Sprache geändert zu Deutsch',
+                'zh': '语言已更改为中文'
+            };
+            
+            const notification = new NotificationManager();
+            notification.show(messages[lang] || messages['en'], 'success', 3000);
+        }
     }
 }
 
@@ -271,7 +292,7 @@ class ContactForm {
         // Simulate API delay
         return new Promise((resolve) => {
             setTimeout(() => {
-                console.log('Form data:', data);
+                // Form data prepared for submission
                 resolve();
             }, 1500);
         });
@@ -554,7 +575,7 @@ class PerformanceMonitor {
                 const perfData = performance.getEntriesByType('navigation')[0];
                 const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
                 
-                console.log(`Page load time: ${loadTime}ms`);
+                // Page load time tracked: ${loadTime}ms
                 
                 // You can send this data to analytics
                 this.trackPerformance({
@@ -568,7 +589,7 @@ class PerformanceMonitor {
     
     trackPerformance(data) {
         // This would typically send data to your analytics service
-        console.log('Performance data:', data);
+        // Performance data collected for analytics
     }
 }
 
